@@ -3,7 +3,7 @@ import SwiftUI
 import AppIntents
 
 struct JobCounterWidgetEntryView: View {
-    var entry: JobCounterEntry
+    var entry: SimpleEntry
 
     var body: some View {
         HStack(spacing: 12) {
