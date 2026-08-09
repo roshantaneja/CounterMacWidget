@@ -16,34 +16,36 @@ struct JobCounterWidget: Widget {
 
 struct JobCounterEntry: TimelineEntry {
     let date: Date
+    let myCount: Int
+    let partnerCount: Int
 }
 
 struct JobCounterProvider: TimelineProvider {
     func placeholder(in context: Context) -> JobCounterEntry {
-        JobCounterEntry(date: Date())
+        JobCounterEntry(date: Date(), myCount: 0, partnerCount: 0)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (JobCounterEntry) -> Void) {
-        completion(JobCounterEntry(date: Date()))
+        completion(currentEntry())
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<JobCounterEntry>) -> Void) {
-        let entry = JobCounterEntry(date: Date())
-        completion(Timeline(entries: [entry], policy: .never))
+        let timeline = Timeline(entries: [currentEntry()], policy: .never)
+        completion(timeline)
     }
-}
 
-struct JobCounterWidgetEntryView: View {
-    var entry: JobCounterEntry
-
-    var body: some View {
-        Text("Job Counter")
-            .containerBackground(.fill.tertiary, for: .widget)
+    private func currentEntry() -> JobCounterEntry {
+        let data = LocalCounterManager().data
+        return JobCounterEntry(
+            date: Date(),
+            myCount: data.myCount,
+            partnerCount: data.partnerCount
+        )
     }
 }
 
 #Preview(as: .systemMedium) {
     JobCounterWidget()
 } timeline: {
-    JobCounterEntry(date: .now)
+    JobCounterEntry(date: .now, myCount: 12, partnerCount: 9)
 }
