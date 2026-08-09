@@ -1,1 +1,56 @@
-# CounterMacWidget
+# Job Counter
+
+A macOS SwiftUI app and desktop widget for tracking job-application counts together (“My Applications” vs “His Applications”), with local App Group storage and optional Firebase Firestore sync.
+
+## Distribute a standalone `.app` (free Apple ID / Personal Team)
+
+You can build and share Job Counter using a free Apple ID signed with your **Personal Team** (no paid Developer Program membership required for ad‑hoc local installs).
+
+### 1. Sign in and select your team in Xcode
+
+1. Open the project in **Xcode**.
+2. Go to **Xcode → Settings… → Accounts**.
+3. Click **+** and sign in with your free **Apple ID** if you haven’t already.
+4. Select the **JobCounter** app target → **Signing & Capabilities**.
+5. Enable **Automatically manage signing**.
+6. Set **Team** to your **Personal Team** (usually your name).
+7. Confirm the Bundle Identifier is unique (e.g. `com.yourname.JobCounter`).
+8. Repeat signing for the **widget extension** target if present, using the same team and a matching App Group (`group.com.jobcounter.app`).
+
+> Note: Personal Team builds expire after a limited period (often about 7 days). Rebuild and resend when the partner’s copy stops launching.
+
+### 2. Archive and export the `.app` bundle
+
+1. In the Xcode toolbar, set the run destination to **Any Mac** (or your Mac if “Any Mac” isn’t listed).
+2. Choose **Product → Archive**. Wait for the archive to finish; the **Organizer** window should open.
+3. In **Organizer**, select the new archive → **Distribute App**.
+4. Choose **Copy App** (or **Custom** → option that exports a local macOS app, depending on your Xcode version).
+5. Finish the wizard and pick an export folder.
+6. You should get a folder containing **`JobCounter.app`**.
+
+### 3. Zip the app and send it
+
+1. In Finder, locate `JobCounter.app`.
+2. Right‑click → **Compress “JobCounter.app”** to create `JobCounter.app.zip`.
+3. Upload the zip to **Google Drive** (or attach it in **Email** / Messages).
+4. Share the link or send the zip to your partner.
+
+Ask your partner to:
+
+1. Download and unzip the archive.
+2. Drag **`JobCounter.app`** into **/Applications**.
+3. Run the quarantine bypass command below before opening the app (recommended), **or** right‑click → **Open** the first time if macOS shows a warning.
+
+## Bypass download quarantine (partner Mac)
+
+macOS marks apps downloaded from the internet (Drive, email, etc.) with a quarantine flag, which can block launch (“app can’t be opened because Apple cannot check it for malicious software”).
+
+After placing the app in **Applications**, open **Terminal** and run:
+
+```bash
+xattr -cr /Applications/JobCounter.app
+```
+
+Then open **Job Counter** from Applications (or Spotlight).
+
+> This only clears the quarantine attributes on that copy of the app; it does not disable Gatekeeper system‑wide.
