@@ -1,0 +1,20 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+SourcePackages/
+Package.resolved
+JobCounter.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# macOS
+.DS_Store

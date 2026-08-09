@@ -4,6 +4,7 @@ struct ContentView: View {
     @State private var counter = CounterData.zero
 
     private let manager = LocalCounterManager()
+    private let syncService = FirestoreSyncService()
 
     var body: some View {
         VStack(spacing: 24) {
@@ -15,16 +16,22 @@ struct ContentView: View {
                 counterCard(
                     title: "My Applications",
                     count: counter.myCount,
-                    action: {
-                        counter = manager.incrementMyCount()
+                    onDecrement: {
+                        counter = apply { $0.decrementMyCount() }
+                    },
+                    onIncrement: {
+                        counter = apply { $0.incrementMyCount() }
                     }
                 )
 
                 counterCard(
                     title: "His Applications",
                     count: counter.partnerCount,
-                    action: {
-                        counter = manager.incrementPartnerCount()
+                    onDecrement: {
+                        counter = apply { $0.decrementPartnerCount() }
+                    },
+                    onIncrement: {
+                        counter = apply { $0.incrementPartnerCount() }
                     }
                 )
             }
@@ -33,13 +40,28 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             counter = manager.data
+            syncService.listenForCloudUpdates()
         }
+        .onReceive(NotificationCenter.default.publisher(for: FirestoreSyncService.didUpdateNotification)) { notification in
+            if let updated = notification.userInfo?["counterData"] as? CounterData {
+                counter = updated
+            } else {
+                counter = manager.data
+            }
+        }
+    }
+
+    private func apply(_ mutate: (LocalCounterManager) -> CounterData) -> CounterData {
+        let updated = mutate(manager)
+        syncService.pushCountsToCloud(myCount: updated.myCount, partnerCount: updated.partnerCount)
+        return updated
     }
 
     private func counterCard(
         title: String,
         count: Int,
-        action: @escaping () -> Void
+        onDecrement: @escaping () -> Void,
+        onIncrement: @escaping () -> Void
     ) -> some View {
         VStack(spacing: 16) {
             Text(title)
@@ -49,12 +71,22 @@ struct ContentView: View {
                 .font(.system(size: 48, weight: .bold, design: .rounded))
                 .monospacedDigit()
 
-            Button(action: action) {
-                Image(systemName: "plus")
-                    .font(.title2.weight(.semibold))
-                    .frame(width: 44, height: 44)
+            HStack(spacing: 12) {
+                Button(action: onDecrement) {
+                    Image(systemName: "minus")
+                        .font(.title2.weight(.semibold))
+                        .frame(width: 44, height: 44)
+                }
+                .buttonStyle(.bordered)
+                .disabled(count == 0)
+
+                Button(action: onIncrement) {
+                    Image(systemName: "plus")
+                        .font(.title2.weight(.semibold))
+                        .frame(width: 44, height: 44)
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .buttonStyle(.borderedProminent)
         }
         .frame(maxWidth: .infinity)
         .padding(24)

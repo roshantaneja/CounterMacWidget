@@ -46,9 +46,25 @@ final class LocalCounterManager {
     }
 
     @discardableResult
+    func decrementMyCount() -> CounterData {
+        var current = data
+        current.myCount = max(0, current.myCount - 1)
+        data = current
+        return current
+    }
+
+    @discardableResult
     func incrementPartnerCount() -> CounterData {
         var current = data
         current.partnerCount += 1
+        data = current
+        return current
+    }
+
+    @discardableResult
+    func decrementPartnerCount() -> CounterData {
+        var current = data
+        current.partnerCount = max(0, current.partnerCount - 1)
         data = current
         return current
     }

@@ -1,0 +1,108 @@
+name: JobCounter
+options:
+  bundleIdPrefix: com.jobcounter
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+  xcodeVersion: "16.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: "UBH45H647L"
+    CURRENT_PROJECT_VERSION: "1"
+    MARKETING_VERSION: "1.0"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    DEAD_CODE_STRIPPING: YES
+
+packages:
+  firebase-ios-sdk:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 11.0.0
+
+targets:
+  JobCounter:
+    type: application
+    platform: macOS
+    sources:
+      - path: JobCounter
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jobcounter.app
+        PRODUCT_NAME: JobCounter
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Job Counter
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        COMBINE_HIDPI_IMAGES: YES
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_ENTITLEMENTS: JobCounter/JobCounter.entitlements
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/../Frameworks"
+        SWIFT_EMIT_LOC_STRINGS: YES
+    entitlements:
+      path: JobCounter/JobCounter.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.files.user-selected.read-only: true
+        com.apple.security.network.client: true
+        com.apple.security.application-groups:
+          - group.com.jobcounter.app
+    dependencies:
+      - package: firebase-ios-sdk
+        product: FirebaseCore
+      - package: firebase-ios-sdk
+        product: FirebaseFirestore
+      - target: JobCounterWidget
+        embed: true
+    scheme:
+      testTargets: []
+
+  JobCounterWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: JobCounterWidget
+        excludes:
+          - "**/.DS_Store"
+      - path: JobCounter
+        includes:
+          - AppGroup.swift
+          - LocalCounterManager.swift
+          - CounterIntents.swift
+          - FirestoreSyncService.swift
+          - FirebaseBootstrap.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jobcounter.app.widget
+        PRODUCT_NAME: JobCounterWidget
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: JobCounterWidget/Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: Job Counter
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        CODE_SIGN_ENTITLEMENTS: JobCounterWidget/JobCounterWidget.entitlements
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/../Frameworks"
+          - "@executable_path/../../../../Frameworks"
+        SKIP_INSTALL: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+    entitlements:
+      path: JobCounterWidget/JobCounterWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.application-groups:
+          - group.com.jobcounter.app
+    dependencies:
+      - package: firebase-ios-sdk
+        product: FirebaseCore
+      - package: firebase-ios-sdk
+        product: FirebaseFirestore

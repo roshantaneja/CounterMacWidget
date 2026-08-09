@@ -2,6 +2,18 @@
 
 A macOS SwiftUI app and desktop widget for tracking job-application counts together (“My Applications” vs “His Applications”), with local App Group storage and optional Firebase Firestore sync.
 
+## Run in Xcode
+
+1. Open **`JobCounter.xcodeproj`** (double-click it, or `open JobCounter.xcodeproj`).
+2. Wait for Swift packages (**Firebase**) to finish resolving if prompted.
+3. Select the **JobCounter** scheme and destination **My Mac**.
+4. Confirm **Signing & Capabilities** uses your **Personal Team** for both **JobCounter** and **JobCounterWidget**.
+5. Press **⌘R** to build and run.
+
+Local counting works without Firebase. Cloud sync needs a **`GoogleService-Info.plist`** from your Firebase project added to the **JobCounter** (and optionally widget) target.
+
+> The project is defined by `project.yml`. If you regenerate it with [XcodeGen](https://github.com/yonaskolb/XcodeGen), run `xcodegen generate` from the repo root.
+
 ## Distribute a standalone `.app` (free Apple ID / Personal Team)
 
 You can build and share Job Counter using a free Apple ID signed with your **Personal Team** (no paid Developer Program membership required for ad‑hoc local installs).

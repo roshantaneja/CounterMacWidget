@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09ABB23599C51645F8B4AC28 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 02873150E412DB28EC9574FB /* FirebaseFirestore */; };
+		16DD0638A8888AA71FB0378B /* LocalCounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B337FCD40D461EF47058 /* LocalCounterManager.swift */; };
+		30059F3566AB77CC37568697 /* JobCounterTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA61F98645880E2B8EC1D9F /* JobCounterTimelineProvider.swift */; };
+		42013C26F2F159BCD88D3B21 /* CounterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865A13A96F2137130C988F2 /* CounterIntents.swift */; };
+		462E882BA212327F358A994C /* FirebaseBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64548DC362D6754316136850 /* FirebaseBootstrap.swift */; };
+		495C577F5209119EC9AA0369 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6DD046743CF40CB730EE66 /* AppGroup.swift */; };
+		53DE593455ED859E1A8089A2 /* JobCounterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6DE03C8AA345DAAFD72282 /* JobCounterWidget.swift */; };
+		5ACAEF5387F7924267DFDA32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CE77AF7704DE9958F82E39 /* AppDelegate.swift */; };
+		5D3F7A639BDAC6BB83D43994 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C1F35728D6E97275C51940D7 /* FirebaseCore */; };
+		73552D9EF485F855AC3D150A /* JobCounterWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC7A63DA58076299FD7A45 /* JobCounterWidgetEntryView.swift */; };
+		7527B1E06EA8A4CAA0574EB7 /* FirestoreSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9117AD54EA8175DA5B0FE6 /* FirestoreSyncService.swift */; };
+		7A1633DCEDFF3A2ABF6E87F7 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = BE19E77B20730E63E331B9F2 /* FirebaseCore */; };
+		831DDDEF6F906EF7C76FF6EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8869FB3C209A8C4DE2B60C84 /* FirebaseFirestore */; };
+		8562CA9B64B68B4D971A3B1C /* CounterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865A13A96F2137130C988F2 /* CounterIntents.swift */; };
+		8BFB3594D53472C0612B8A1D /* LocalCounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B337FCD40D461EF47058 /* LocalCounterManager.swift */; };
+		8F08513DC534CCB3A95ECCD1 /* FirebaseBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64548DC362D6754316136850 /* FirebaseBootstrap.swift */; };
+		9EAB90FF22985FAA4A038B10 /* JobCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377D427641B94A8190A7763E /* JobCounterApp.swift */; };
+		A489E559F8B610536D22901A /* JobCounterWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A89DA5EE9710A2CD3F301FF7 /* JobCounterWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CBFC0086D273DBF06FC7A09A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5FE7D827EE307A8FE7291 /* ContentView.swift */; };
+		E0652657A8D704E8DB197638 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6DD046743CF40CB730EE66 /* AppGroup.swift */; };
+		E55EDC4F1C1D07836F422ED0 /* FirestoreSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9117AD54EA8175DA5B0FE6 /* FirestoreSyncService.swift */; };
+		F0C314383FC78B5E887840C2 /* JobCounterWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7517721C128BA37B8AA3196 /* JobCounterWidgetBundle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7EDB61587C6A1BE0EC3DAF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51DBB78D0C866E1DE59C5D87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF0AA9183A31974A3A4A199A;
+			remoteInfo = JobCounterWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		42F9A6CF79BDB74C80818D0A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A489E559F8B610536D22901A /* JobCounterWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0197B337FCD40D461EF47058 /* LocalCounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCounterManager.swift; sourceTree = "<group>"; };
+		1E6DE03C8AA345DAAFD72282 /* JobCounterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCounterWidget.swift; sourceTree = "<group>"; };
+		1EC5FE7D827EE307A8FE7291 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		377D427641B94A8190A7763E /* JobCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCounterApp.swift; sourceTree = "<group>"; };
+		590861A9E2C796F4FE0BE5EB /* JobCounterWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JobCounterWidget.entitlements; sourceTree = "<group>"; };
+		64548DC362D6754316136850 /* FirebaseBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBootstrap.swift; sourceTree = "<group>"; };
+		68258B1F141AE588ED92FB75 /* JobCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B6DD046743CF40CB730EE66 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		6E103980C2392CF7C76725E3 /* JobCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JobCounter.entitlements; sourceTree = "<group>"; };
+		7B9117AD54EA8175DA5B0FE6 /* FirestoreSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreSyncService.swift; sourceTree = "<group>"; };
+		8CA61F98645880E2B8EC1D9F /* JobCounterTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCounterTimelineProvider.swift; sourceTree = "<group>"; };
+		A89DA5EE9710A2CD3F301FF7 /* JobCounterWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JobCounterWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7CE77AF7704DE9958F82E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7517721C128BA37B8AA3196 /* JobCounterWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCounterWidgetBundle.swift; sourceTree = "<group>"; };
+		CDB4EF37FD3BFEC1E4A338E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D865A13A96F2137130C988F2 /* CounterIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterIntents.swift; sourceTree = "<group>"; };
+		E1FC7A63DA58076299FD7A45 /* JobCounterWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCounterWidgetEntryView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		35E1A0953D945962A9D29722 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D3F7A639BDAC6BB83D43994 /* FirebaseCore in Frameworks */,
+				09ABB23599C51645F8B4AC28 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD71314E0640F11B73E029B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A1633DCEDFF3A2ABF6E87F7 /* FirebaseCore in Frameworks */,
+				831DDDEF6F906EF7C76FF6EC /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		312CA53049B588F5A26BA170 /* JobCounterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CDB4EF37FD3BFEC1E4A338E8 /* Info.plist */,
+				8CA61F98645880E2B8EC1D9F /* JobCounterTimelineProvider.swift */,
+				590861A9E2C796F4FE0BE5EB /* JobCounterWidget.entitlements */,
+				1E6DE03C8AA345DAAFD72282 /* JobCounterWidget.swift */,
+				C7517721C128BA37B8AA3196 /* JobCounterWidgetBundle.swift */,
+				E1FC7A63DA58076299FD7A45 /* JobCounterWidgetEntryView.swift */,
+			);
+			path = JobCounterWidget;
+			sourceTree = "<group>";
+		};
+		63C636F29A0B87D3580C2DEC /* JobCounter */ = {
+			isa = PBXGroup;
+			children = (
+				B7CE77AF7704DE9958F82E39 /* AppDelegate.swift */,
+				6B6DD046743CF40CB730EE66 /* AppGroup.swift */,
+				1EC5FE7D827EE307A8FE7291 /* ContentView.swift */,
+				D865A13A96F2137130C988F2 /* CounterIntents.swift */,
+				64548DC362D6754316136850 /* FirebaseBootstrap.swift */,
+				7B9117AD54EA8175DA5B0FE6 /* FirestoreSyncService.swift */,
+				6E103980C2392CF7C76725E3 /* JobCounter.entitlements */,
+				377D427641B94A8190A7763E /* JobCounterApp.swift */,
+				0197B337FCD40D461EF47058 /* LocalCounterManager.swift */,
+			);
+			path = JobCounter;
+			sourceTree = "<group>";
+		};
+		A4065AC76AC3CAB63CACF495 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68258B1F141AE588ED92FB75 /* JobCounter.app */,
+				A89DA5EE9710A2CD3F301FF7 /* JobCounterWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEEADD4B6860D9B08B9ADDED = {
+			isa = PBXGroup;
+			children = (
+				63C636F29A0B87D3580C2DEC /* JobCounter */,
+				312CA53049B588F5A26BA170 /* JobCounterWidget */,
+				A4065AC76AC3CAB63CACF495 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9EE95953FB12A1585F6ACA8 /* JobCounter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7838440B11E40E2FC5C2577B /* Build configuration list for PBXNativeTarget "JobCounter" */;
+			buildPhases = (
+				CEAD722279CD86F7DC6956D4 /* Sources */,
+				35E1A0953D945962A9D29722 /* Frameworks */,
+				42F9A6CF79BDB74C80818D0A /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B9511F5839415A97B81B8CF /* PBXTargetDependency */,
+			);
+			name = JobCounter;
+			packageProductDependencies = (
+				C1F35728D6E97275C51940D7 /* FirebaseCore */,
+				02873150E412DB28EC9574FB /* FirebaseFirestore */,
+			);
+			productName = JobCounter;
+			productReference = 68258B1F141AE588ED92FB75 /* JobCounter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF0AA9183A31974A3A4A199A /* JobCounterWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 730D7082A692C4A50A32D203 /* Build configuration list for PBXNativeTarget "JobCounterWidget" */;
+			buildPhases = (
+				BEC943EEEF26D5D1B410DB23 /* Sources */,
+				8BD71314E0640F11B73E029B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JobCounterWidget;
+			packageProductDependencies = (
+				BE19E77B20730E63E331B9F2 /* FirebaseCore */,
+				8869FB3C209A8C4DE2B60C84 /* FirebaseFirestore */,
+			);
+			productName = JobCounterWidget;
+			productReference = A89DA5EE9710A2CD3F301FF7 /* JobCounterWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		51DBB78D0C866E1DE59C5D87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D9EE95953FB12A1585F6ACA8 = {
+						DevelopmentTeam = UBH45H647L;
+						ProvisioningStyle = Automatic;
+					};
+					FF0AA9183A31974A3A4A199A = {
+						DevelopmentTeam = UBH45H647L;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B7FC9A3DF0C35B6648E175D0 /* Build configuration list for PBXProject "JobCounter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DEEADD4B6860D9B08B9ADDED;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9EE95953FB12A1585F6ACA8 /* JobCounter */,
+				FF0AA9183A31974A3A4A199A /* JobCounterWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEC943EEEF26D5D1B410DB23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495C577F5209119EC9AA0369 /* AppGroup.swift in Sources */,
+				8562CA9B64B68B4D971A3B1C /* CounterIntents.swift in Sources */,
+				8F08513DC534CCB3A95ECCD1 /* FirebaseBootstrap.swift in Sources */,
+				E55EDC4F1C1D07836F422ED0 /* FirestoreSyncService.swift in Sources */,
+				30059F3566AB77CC37568697 /* JobCounterTimelineProvider.swift in Sources */,
+				53DE593455ED859E1A8089A2 /* JobCounterWidget.swift in Sources */,
+				F0C314383FC78B5E887840C2 /* JobCounterWidgetBundle.swift in Sources */,
+				73552D9EF485F855AC3D150A /* JobCounterWidgetEntryView.swift in Sources */,
+				16DD0638A8888AA71FB0378B /* LocalCounterManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEAD722279CD86F7DC6956D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ACAEF5387F7924267DFDA32 /* AppDelegate.swift in Sources */,
+				E0652657A8D704E8DB197638 /* AppGroup.swift in Sources */,
+				CBFC0086D273DBF06FC7A09A /* ContentView.swift in Sources */,
+				42013C26F2F159BCD88D3B21 /* CounterIntents.swift in Sources */,
+				462E882BA212327F358A994C /* FirebaseBootstrap.swift in Sources */,
+				7527B1E06EA8A4CAA0574EB7 /* FirestoreSyncService.swift in Sources */,
+				9EAB90FF22985FAA4A038B10 /* JobCounterApp.swift in Sources */,
+				8BFB3594D53472C0612B8A1D /* LocalCounterManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B9511F5839415A97B81B8CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF0AA9183A31974A3A4A199A /* JobCounterWidget */;
+			targetProxy = A7EDB61587C6A1BE0EC3DAF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2E52601C52DEDE6673690AAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UBH45H647L;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2EC5E384562C27681958D304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UBH45H647L;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4C6C3398343E13E036278764 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JobCounterWidget/JobCounterWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JobCounterWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Job Counter";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobcounter.app.widget;
+				PRODUCT_NAME = JobCounterWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		B2968D3FD3954229D42E7FB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JobCounter/JobCounter.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Job Counter";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobcounter.app;
+				PRODUCT_NAME = JobCounter;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		B3F50450B8836A944BF43857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JobCounter/JobCounter.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Job Counter";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobcounter.app;
+				PRODUCT_NAME = JobCounter;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		F466E893655B475FAA54B9BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JobCounterWidget/JobCounterWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JobCounterWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Job Counter";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobcounter.app.widget;
+				PRODUCT_NAME = JobCounterWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		730D7082A692C4A50A32D203 /* Build configuration list for PBXNativeTarget "JobCounterWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C6C3398343E13E036278764 /* Debug */,
+				F466E893655B475FAA54B9BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7838440B11E40E2FC5C2577B /* Build configuration list for PBXNativeTarget "JobCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3F50450B8836A944BF43857 /* Debug */,
+				B2968D3FD3954229D42E7FB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B7FC9A3DF0C35B6648E175D0 /* Build configuration list for PBXProject "JobCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E52601C52DEDE6673690AAE /* Debug */,
+				2EC5E384562C27681958D304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02873150E412DB28EC9574FB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		8869FB3C209A8C4DE2B60C84 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BE19E77B20730E63E331B9F2 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		C1F35728D6E97275C51940D7 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 51DBB78D0C866E1DE59C5D87 /* Project object */;
+}

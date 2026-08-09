@@ -1,16 +1,17 @@
 import Foundation
+import FirebaseCore
 import FirebaseFirestore
 import WidgetKit
 
 final class FirestoreSyncService {
     static let didUpdateNotification = Notification.Name("FirestoreSyncService.didUpdate")
 
-    private let db = Firestore.firestore()
     private let localManager: LocalCounterManager
     private var listener: ListenerRegistration?
 
-    private var competitionDocument: DocumentReference {
-        db.collection("counters").document("competition")
+    private var competitionDocument: DocumentReference? {
+        guard FirebaseApp.app() != nil else { return nil }
+        return Firestore.firestore().collection("counters").document("competition")
     }
 
     init(localManager: LocalCounterManager = LocalCounterManager()) {
@@ -23,6 +24,11 @@ final class FirestoreSyncService {
 
     /// Writes both counts to `counters/competition`.
     func pushCountsToCloud(myCount: Int, partnerCount: Int) {
+        guard let competitionDocument else {
+            print("Firestore push skipped: Firebase is not configured.")
+            return
+        }
+
         let payload: [String: Any] = [
             "myCount": myCount,
             "partnerCount": partnerCount,
@@ -38,6 +44,11 @@ final class FirestoreSyncService {
     /// Listens for remote changes, mirrors them into `LocalCounterManager`, and notifies the app.
     func listenForCloudUpdates() {
         listener?.remove()
+
+        guard let competitionDocument else {
+            print("Firestore listener skipped: Firebase is not configured.")
+            return
+        }
 
         listener = competitionDocument.addSnapshotListener { [weak self] snapshot, error in
             guard let self else { return }
