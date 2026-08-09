@@ -14,7 +14,7 @@ struct ContentView: View {
 
             HStack(spacing: 20) {
                 counterCard(
-                    title: "My Applications",
+                    title: "Smriti's Applications",
                     count: counter.myCount,
                     onDecrement: {
                         counter = apply { $0.decrementMyCount() }
@@ -25,7 +25,7 @@ struct ContentView: View {
                 )
 
                 counterCard(
-                    title: "His Applications",
+                    title: "Roshan's Applications",
                     count: counter.partnerCount,
                     onDecrement: {
                         counter = apply { $0.decrementPartnerCount() }
