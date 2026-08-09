@@ -1,5 +1,6 @@
 import Foundation
 import FirebaseFirestore
+import WidgetKit
 
 final class FirestoreSyncService {
     static let didUpdateNotification = Notification.Name("FirestoreSyncService.didUpdate")
@@ -56,6 +57,9 @@ final class FirestoreSyncService {
             guard updated != self.localManager.data else { return }
 
             self.localManager.data = updated
+
+            // Refresh desktop widgets when partner (or remote) data changes.
+            WidgetCenter.shared.reloadAllTimelines()
 
             NotificationCenter.default.post(
                 name: Self.didUpdateNotification,
