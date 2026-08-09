@@ -55,8 +55,8 @@ Your Mac will now automatically re-sign your widget in the background every 5 da
 2. Right‑click → **Compress “JobCounter.app”** to create `JobCounter.app.zip`.
 3. Right-click your JobCounter project folder (the whole folder containing JobCounter.xcodeproj and installer.sh) → Compress.
 4. Send him the two files:
-   a. JobCounter.app.zip (the standalone app you already exported)
-   JobCounter-Project.zip (the project folder containing installer.sh)
+   * JobCounter.app.zip (the standalone app you already exported)
+   * JobCounter-Project.zip (the project folder containing installer.sh)
 
 ---
 
