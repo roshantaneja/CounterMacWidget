@@ -2,36 +2,45 @@
 
 A macOS SwiftUI app and desktop widget for tracking job-application counts together (“My Applications” vs “His Applications”), with local App Group storage and optional Firebase Firestore sync.
 
-## Run in Xcode
+---
+## For App Creator
 
-1. Open **`JobCounter.xcodeproj`** (double-click it, or `open JobCounter.xcodeproj`).
-2. Wait for Swift packages (**Firebase**) to finish resolving if prompted.
-3. Select the **JobCounter** scheme and destination **My Mac**.
-4. Confirm **Signing & Capabilities** uses your **Personal Team** for both **JobCounter** and **JobCounterWidget**.
-5. Press **⌘R** to build and run.
+### 1. Firebase Backend Setup
 
-Local counting works without Firebase. Cloud sync needs a **`GoogleService-Info.plist`** from your Firebase project added to the **JobCounter** (and optionally widget) target.
+Set up a shared database so application counts sync across both Macs in real time.
 
-> The project is defined by `project.yml`. If you regenerate it with [XcodeGen](https://github.com/yonaskolb/XcodeGen), run `xcodegen generate` from the repo root.
+1. Go to the [Firebase Console](https://console.firebase.google.com/) and click **Add Project**.
+2. Name the project `JobCounter` and disable Google Analytics.
+3. Under **Build**, select **Firestore Database** and click **Create Database**.
+4. Choose **Start in test mode** so read/write rules are open during setup.
+5. In Firestore, create a collection named `counters` with a single document ID `competition`:
+   * Field: `myCount` (Number) = `0`
+   * Field: `partnerCount` (Number) = `0`
+6. Click the gear icon next to **Project Overview** → **Project settings**.
+7. Under *Your apps*, click the **iOS/macOS** icon to register an app (Bundle ID e.g., `com.yourname.JobCounter`).
+8. Download the `GoogleService-Info.plist` file and keep it ready for Xcode.
 
-## Distribute a standalone `.app` (free Apple ID / Personal Team)
+### 2. Project Setup (Xcode)
 
-You can build and share Job Counter using a free Apple ID signed with your **Personal Team** (no paid Developer Program membership required for ad‑hoc local installs).
+1. Open `JobCounter.xcodeproj` in Xcode.
+2. Drag `GoogleService-Info.plist` into your Xcode project navigator (ensure it is checked for all targets).
+3. Under **Signing & Capabilities** for both **JobCounter** and **JobCounterWidget**:
+   * Enable **Automatically manage signing** under your free Personal Team.
+   * Enable **App Groups** and check `group.com.jobcounter.app`.
+   * Click **`+ Capability`**, search for **Hardened Runtime**, and add it to both targets.
+4. Set the run destination in the top toolbar to **My Mac** and press `⌘R` to build and verify local execution.
+5. Add it as you would any widget to your desktop.
+6. Open a terminal, navigate to your JobCounter project root directory, and run
+```bash
+   chmod +x installer.sh
+```
+then run
+```bash
+   ./installer.sh
+```
+Your Mac will now automatically re-sign your widget in the background every 5 days so it never expires!
 
-### 1. Sign in and select your team in Xcode
-
-1. Open the project in **Xcode**.
-2. Go to **Xcode → Settings… → Accounts**.
-3. Click **+** and sign in with your free **Apple ID** if you haven’t already.
-4. Select the **JobCounter** app target → **Signing & Capabilities**.
-5. Enable **Automatically manage signing**.
-6. Set **Team** to your **Personal Team** (usually your name).
-7. Confirm the Bundle Identifier is unique (e.g. `com.yourname.JobCounter`).
-8. Repeat signing for the **widget extension** target if present, using the same team and a matching App Group (`group.com.jobcounter.app`).
-
-> Note: Personal Team builds expire after a limited period (often about 7 days). Rebuild and resend when the partner’s copy stops launching.
-
-### 2. Archive and export the `.app` bundle
+### 3. Distribute app
 
 1. In the Xcode toolbar, set the run destination to **Any Mac** (or your Mac if “Any Mac” isn’t listed).
 2. Choose **Product → Archive**. Wait for the archive to finish; the **Organizer** window should open.
@@ -40,55 +49,40 @@ You can build and share Job Counter using a free Apple ID signed with your **Per
 5. Finish the wizard and pick an export folder.
 6. You should get a folder containing **`JobCounter.app`**.
 
-### 3. Zip the app and send it
+### 4. Zip the app and send it
 
 1. In Finder, locate `JobCounter.app`.
 2. Right‑click → **Compress “JobCounter.app”** to create `JobCounter.app.zip`.
-3. Upload the zip to **Google Drive** (or attach it in **Email** / Messages).
-4. Share the link or send the zip to your partner.
+3. Right-click your JobCounter project folder (the whole folder containing JobCounter.xcodeproj and installer.sh) → Compress.
+4. Send him the two files:
+   a. JobCounter.app.zip (the standalone app you already exported)
+   JobCounter-Project.zip (the project folder containing installer.sh)
 
-Ask your partner to:
+---
 
-1. Download and unzip the archive.
-2. Drag **`JobCounter.app`** into **/Applications**.
-3. Run the quarantine bypass command below before opening the app (recommended), **or** right‑click → **Open** the first time if macOS shows a warning.
+## For App Receiver
 
-## Bypass download quarantine (partner Mac)
-
-macOS marks apps downloaded from the internet (Drive, email, etc.) with a quarantine flag, which can block launch (“app can’t be opened because Apple cannot check it for malicious software”).
-
-After placing the app in **Applications**, open **Terminal** and run:
+### 1. Receive and Install App
+1. Download both the archives.
+2. Drag **`JobCounter.app`** into `/Applications`.
+3. Run the quarantine bypass command below in your terminal before opening the app:
 
 ```bash
 xattr -cr /Applications/JobCounter.app
 ```
 
-Then open **Job Counter** from Applications (or Spotlight).
+Then open **Job Counter** from Applications.
 
-> This only clears the quarantine attributes on that copy of the app; it does not disable Gatekeeper system‑wide.
+### 2. Add the Desktop Widget
+1. Right-click anywhere on your empty desktop background and select Edit Widgets...
+2. Search for JobCounter in the left sidebar.
+3. Drag the Medium widget onto your desktop and click Done.
 
-## Auto-refresh signing (bypass the ~7 day Personal Team expiry)
-
-Personal Team builds expire after about a week. Ship the **whole project folder** (including `JobCounter.xcodeproj` and `installer.sh`), not only the `.app`.
-
-### Before you zip (you)
-
+### 3. One-Time Auto-Refresher Setup (Keeps Widget Active Forever)
+1. Unzip `JobCounter-Project.zip` and place the folder anywhere you like (e.g., your home folder or Documents).
+2. Open Xcode on your Mac, go to Xcode → Settings… → Accounts, click +, and sign in with your Apple ID.
+3. Open Terminal, drag and drop the unzipped project folder into Terminal after typing cd  (e.g., cd /path/to/JobCounter-Project), and hit Enter.
+4. Run this single installation command:
 ```bash
-chmod +x installer.sh
+./installer.sh
 ```
-
-Zip the project directory and send it (Drive/Email).
-
-### What your partner does
-
-**Requirements on his Mac:** Xcode installed, signed into Xcode with his Apple ID (Personal Team).
-
-1. Unzip the project folder somewhere permanent (e.g. `~/Developer/JobCounter`) — don’t delete it later; the refresher rebuilds from this path.
-2. Drag **`JobCounter.app`** into **/Applications** (if you included a prebuilt app), or build once from Xcode first.
-3. Open **Terminal**, `cd` into the unzipped project folder, and run:
-
-```bash
-xattr -cr /Applications/JobCounter.app && ./installer.sh
-```
-
-That installs a LaunchAgent (`com.jobcounter.refresh`) which rebuilds and reinstalls the app about every **5 days** (`StartInterval` = 432000 seconds). Logs: `~/.jobcounter/refresh.log`.
