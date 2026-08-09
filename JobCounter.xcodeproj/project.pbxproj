@@ -18,16 +18,12 @@
 		5D3F7A639BDAC6BB83D43994 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C1F35728D6E97275C51940D7 /* FirebaseCore */; };
 		73552D9EF485F855AC3D150A /* JobCounterWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC7A63DA58076299FD7A45 /* JobCounterWidgetEntryView.swift */; };
 		7527B1E06EA8A4CAA0574EB7 /* FirestoreSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9117AD54EA8175DA5B0FE6 /* FirestoreSyncService.swift */; };
-		7A1633DCEDFF3A2ABF6E87F7 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = BE19E77B20730E63E331B9F2 /* FirebaseCore */; };
-		831DDDEF6F906EF7C76FF6EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8869FB3C209A8C4DE2B60C84 /* FirebaseFirestore */; };
 		8562CA9B64B68B4D971A3B1C /* CounterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865A13A96F2137130C988F2 /* CounterIntents.swift */; };
 		8BFB3594D53472C0612B8A1D /* LocalCounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B337FCD40D461EF47058 /* LocalCounterManager.swift */; };
-		8F08513DC534CCB3A95ECCD1 /* FirebaseBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64548DC362D6754316136850 /* FirebaseBootstrap.swift */; };
 		9EAB90FF22985FAA4A038B10 /* JobCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377D427641B94A8190A7763E /* JobCounterApp.swift */; };
 		A489E559F8B610536D22901A /* JobCounterWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A89DA5EE9710A2CD3F301FF7 /* JobCounterWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CBFC0086D273DBF06FC7A09A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5FE7D827EE307A8FE7291 /* ContentView.swift */; };
 		E0652657A8D704E8DB197638 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6DD046743CF40CB730EE66 /* AppGroup.swift */; };
-		E55EDC4F1C1D07836F422ED0 /* FirestoreSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9117AD54EA8175DA5B0FE6 /* FirestoreSyncService.swift */; };
 		F0C314383FC78B5E887840C2 /* JobCounterWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7517721C128BA37B8AA3196 /* JobCounterWidgetBundle.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,15 +78,6 @@
 			files = (
 				5D3F7A639BDAC6BB83D43994 /* FirebaseCore in Frameworks */,
 				09ABB23599C51645F8B4AC28 /* FirebaseFirestore in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BD71314E0640F11B73E029B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A1633DCEDFF3A2ABF6E87F7 /* FirebaseCore in Frameworks */,
-				831DDDEF6F906EF7C76FF6EC /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +161,6 @@
 			buildConfigurationList = 730D7082A692C4A50A32D203 /* Build configuration list for PBXNativeTarget "JobCounterWidget" */;
 			buildPhases = (
 				BEC943EEEF26D5D1B410DB23 /* Sources */,
-				8BD71314E0640F11B73E029B /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,8 +168,6 @@
 			);
 			name = JobCounterWidget;
 			packageProductDependencies = (
-				BE19E77B20730E63E331B9F2 /* FirebaseCore */,
-				8869FB3C209A8C4DE2B60C84 /* FirebaseFirestore */,
 			);
 			productName = JobCounterWidget;
 			productReference = A89DA5EE9710A2CD3F301FF7 /* JobCounterWidget.appex */;
@@ -238,8 +222,6 @@
 			files = (
 				495C577F5209119EC9AA0369 /* AppGroup.swift in Sources */,
 				8562CA9B64B68B4D971A3B1C /* CounterIntents.swift in Sources */,
-				8F08513DC534CCB3A95ECCD1 /* FirebaseBootstrap.swift in Sources */,
-				E55EDC4F1C1D07836F422ED0 /* FirestoreSyncService.swift in Sources */,
 				30059F3566AB77CC37568697 /* JobCounterTimelineProvider.swift in Sources */,
 				53DE593455ED859E1A8089A2 /* JobCounterWidget.swift in Sources */,
 				F0C314383FC78B5E887840C2 /* JobCounterWidgetBundle.swift in Sources */,
@@ -543,16 +525,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		8869FB3C209A8C4DE2B60C84 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		BE19E77B20730E63E331B9F2 /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D39DD6620B2A32ECC415BEF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
 		};
 		C1F35728D6E97275C51940D7 /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;

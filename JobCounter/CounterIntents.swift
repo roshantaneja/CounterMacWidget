@@ -3,13 +3,17 @@ import WidgetKit
 
 enum CounterIntentSupport {
     static func apply(_ mutate: (LocalCounterManager) -> CounterData) {
+        #if canImport(FirebaseCore)
         FirebaseBootstrap.configureIfPossible()
+        #endif
 
         let manager = LocalCounterManager()
         let updated = mutate(manager)
 
+        #if canImport(FirebaseFirestore)
         FirestoreSyncService(localManager: manager)
             .pushCountsToCloud(myCount: updated.myCount, partnerCount: updated.partnerCount)
+        #endif
 
         WidgetCenter.shared.reloadAllTimelines()
     }

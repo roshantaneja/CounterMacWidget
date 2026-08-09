@@ -77,8 +77,6 @@ targets:
           - AppGroup.swift
           - LocalCounterManager.swift
           - CounterIntents.swift
-          - FirestoreSyncService.swift
-          - FirebaseBootstrap.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.jobcounter.app.widget
@@ -101,8 +99,6 @@ targets:
         com.apple.security.network.client: true
         com.apple.security.application-groups:
           - group.com.jobcounter.app
-    dependencies:
-      - package: firebase-ios-sdk
-        product: FirebaseCore
-      - package: firebase-ios-sdk
-        product: FirebaseFirestore
+    # Keep the widget lean — Firebase in the appex bloats it (~20MB) and often
+    # knocks it out of the macOS widget gallery. Cloud sync runs from the app.
+    dependencies: []

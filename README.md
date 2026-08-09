@@ -66,3 +66,29 @@ xattr -cr /Applications/JobCounter.app
 Then open **Job Counter** from Applications (or Spotlight).
 
 > This only clears the quarantine attributes on that copy of the app; it does not disable Gatekeeper system‑wide.
+
+## Auto-refresh signing (bypass the ~7 day Personal Team expiry)
+
+Personal Team builds expire after about a week. Ship the **whole project folder** (including `JobCounter.xcodeproj` and `installer.sh`), not only the `.app`.
+
+### Before you zip (you)
+
+```bash
+chmod +x installer.sh
+```
+
+Zip the project directory and send it (Drive/Email).
+
+### What your partner does
+
+**Requirements on his Mac:** Xcode installed, signed into Xcode with his Apple ID (Personal Team).
+
+1. Unzip the project folder somewhere permanent (e.g. `~/Developer/JobCounter`) — don’t delete it later; the refresher rebuilds from this path.
+2. Drag **`JobCounter.app`** into **/Applications** (if you included a prebuilt app), or build once from Xcode first.
+3. Open **Terminal**, `cd` into the unzipped project folder, and run:
+
+```bash
+xattr -cr /Applications/JobCounter.app && ./installer.sh
+```
+
+That installs a LaunchAgent (`com.jobcounter.refresh`) which rebuilds and reinstalls the app about every **5 days** (`StartInterval` = 432000 seconds). Logs: `~/.jobcounter/refresh.log`.
