@@ -1,6 +1,6 @@
 # Job Counter
 
-A macOS SwiftUI app and desktop widget for tracking job-application counts together (“My Applications” vs “His Applications”), with local App Group storage and optional Firebase Firestore sync.
+A macOS SwiftUI app and desktop widget for tracking job-application counts together, with local App Group storage and optional Firebase Firestore sync.
 
 ---
 ## For App Creator
